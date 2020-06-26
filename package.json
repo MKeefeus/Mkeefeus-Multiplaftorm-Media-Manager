@@ -1,0 +1,18 @@
+{
+  "name": "mkeefeus-multiplatform-media-manager",
+  "version": "1.0.0",
+  "description": "A series of bots to manage functionalites of multiple social media sites, such as discord and twitch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mkeefeus",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.3.2",
+    "discord.js": "^12.2.0",
+    "opusscript": "0.0.7",
+    "tmi.js": "^1.5.0",
+    "ytdl-core": "^2.1.5"
+  }
+}
