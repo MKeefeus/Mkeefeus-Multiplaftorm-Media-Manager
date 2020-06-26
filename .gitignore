@@ -116,4 +116,5 @@ dist
 .pnp.*
 
 # Exclude Config flie
-config,js
+twitch/config.js
+discord/config.js
