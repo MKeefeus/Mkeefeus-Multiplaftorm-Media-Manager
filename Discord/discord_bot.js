@@ -1,8 +1,5 @@
 /*
-common checks
-msg.guild.voice Checks if Bot is connected to a voice channel. 
-msg.member.voice.channel Checks if a user is connected to a voice channel
-msg.guild.voice.connection.speaking.bitfield == 1 check if bot is talking
+This file connects the discord module to the discord API and begins to listen for commands, as well as sets up other modules.
 */
 const Discord = require('discord.js')
 const client = new Discord.Client()
@@ -76,3 +73,10 @@ client.on('message', msg=>{
 
 //login to discord
 client.login(token)
+
+/*
+common checks
+msg.guild.voice Checks if Bot is connected to a voice channel. 
+msg.member.voice.channel Checks if a user is connected to a voice channel
+msg.guild.voice.connection.speaking.bitfield == 1 check if bot is talking
+*/

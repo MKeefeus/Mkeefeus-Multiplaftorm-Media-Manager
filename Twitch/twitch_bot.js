@@ -1,4 +1,5 @@
 const tmi = require('tmi.js')
+//Import bot authentication info
 var env = process.env.NODE_ENV || 'twitch'
 var config = require ('./config')[env]
 

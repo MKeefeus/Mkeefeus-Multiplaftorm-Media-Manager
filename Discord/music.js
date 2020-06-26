@@ -1,3 +1,6 @@
+/*
+This module holds all the music functionallity. It uses YTDL to play audio from a given youtube URL and implements basic commands to manage the queue 
+*/
 const worker = require('worker_threads');
 var servers = {}
 var fade = false //made global so fading can be turned on or off whenever 
