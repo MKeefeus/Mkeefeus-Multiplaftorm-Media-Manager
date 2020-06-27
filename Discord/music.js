@@ -3,7 +3,6 @@ This module holds all the music functionallity. It uses YTDL to play audio from 
 */
 const worker = require('worker_threads');
 var servers = {}
-var fade = false //made global so fading can be turned on or off whenever 
 const ytdl = require("ytdl-core")
 var hasPlayed = false
 module.exports = {
@@ -169,16 +168,57 @@ module.exports = {
             msg.channel.send('Please start the music before using the other music commands')
         } 
     },
+    Fade: function(msg, args){
+ 
+        function reduce_volume(dispatcher, increment, args, start_volume){
+
+            function setup_increase(dispatcher, increment, start_volume){
+
+                function increase_volume(dispatcher, increment, start_volume){
+                    var current_vol = dispatcher.volume
+                    if(dispatcher.volume >= start_volume){
+                        console.log(dispatcher.volume)
+                        clearInterval(increase_interval)
+                    }
+                    dispatcher.setVolume(current_vol + increment)
+                }
+
+                dispatcher.setVolume(0)
+                var increase_interval = setInterval(increase_volume, 100, server.dispatcher, increment, start_volume)
+                clearTimeout(wait)
+            }
+            
+            var current_vol = dispatcher.volume
+            if(dispatcher.volume <= 0){
+                server.queue.splice(1, 0, args[1])
+                server.dispatcher.end()
+                var wait = setTimeout(setup_increase, 5000, dispatcher, increment, start_volume)
+                clearInterval(reduce_interval)
+            }
+            dispatcher.setVolume(current_vol - increment)
+        }
+
+
+        if(msg.guild.voice){
+            var server = servers[msg.guild.id]
+            if(msg.guild.voice.connection.speaking.bitfield == 1){
+                var start_volume = (server.dispatcher.volume)
+                var increment = start_volume*.02
+                var reduce_interval = setInterval(reduce_volume, 100, server.dispatcher, increment, args, start_volume) 
+            }   
+        }
+    },
 
     Help: function(msg){
         msg.reply("\n"+
-        "!Play [link]: Play a song or add song to the queue if a song is already playing"+
+        "!Play [Link]: Play a song or add song to the queue if a song is already playing"+
         "make sure to play first before using the other commands\n"+
         "!Puase: Pause the song\n"+
         "!Resume/!Play: Resume the song\n"+
         "!Skip: Skip to the next song in the queue\n"+
         "!Stop: Stops the music and empties the queue\n"+
-        "!Clear: Clears all but the current song from the queue")
+        "!Clear: Clears all but the current song from the queue\n"+
+        "!Fade [Link]: Lower the volume to 0, start the next song, bring volume back up. This places the link at the front of the queue\n")
 
     }
 }

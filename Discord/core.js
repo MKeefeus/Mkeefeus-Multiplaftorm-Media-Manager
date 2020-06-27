@@ -5,9 +5,9 @@ module.exports = {
     //Display to user the different options in this module
     Help: function(msg){
         msg.reply("\n"+
-        "Delete [number of messages]: Deletes the given number of messages from the chat\n"
-        +"Connect: Connects bot to the voice channel you are in\n"
-        +"Disconnect: Disconnects the bot from the voice channel")
+        "!Delete [number of messages]: Deletes the given number of messages from the chat\n"
+        +"!Connect: Connects bot to the voice channel you are in\n"
+        +"!Disconnect: Disconnects the bot from the voice channel")
     },
 
     //Delete [args] number of messages in the channel the command is posted in

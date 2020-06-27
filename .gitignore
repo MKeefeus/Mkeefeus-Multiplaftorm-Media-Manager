@@ -118,3 +118,6 @@ dist
 # Exclude Config flie
 twitch/config.js
 discord/config.js
+
+#Scratch Files
+todo.txt

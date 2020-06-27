@@ -67,6 +67,9 @@ client.on('message', msg=>{
         case 'queue':
             Music.Queue(msg)
             break
+        case 'fade':
+            Music.Fade(msg, args)
+            break
     }
 })
 
