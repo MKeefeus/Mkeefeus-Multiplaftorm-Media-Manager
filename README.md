@@ -1,8 +1,8 @@
-Dependencies:<br>
+<h6>Dependencies:</h6><br>
 @discordjs/opus https://www.npmjs.com/package/@discordjs/opus <br>
-discordjs https://discord.js.org/#/  
-tmi.js https://tmijs.com/
-ytdl-core https://www.npmjs.com/package/ytdl-core 
+discordjs https://discord.js.org<br>
+tmi.js https://tmijs.com/<br>
+ytdl-core https://www.npmjs.com/package/ytdl-core<br>
 
 Commands:
 
