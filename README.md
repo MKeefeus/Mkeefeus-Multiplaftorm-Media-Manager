@@ -1,8 +1,8 @@
 <h3>Dependencies:</h3>
-@discordjs/opus: https://www.npmjs.com/package/@discordjs/opus<br>
-discordjs https://discord.js.org<br>
-tmi.js https://tmijs.com/<br>
-ytdl-core https://www.npmjs.com/package/ytdl-core<br>
+<strong>Discord.js:</strong> https://discord.js.org<br>
+<strong>@discordjs/opus:</strong> https://www.npmjs.com/package/@discordjs/opus<br>
+<strong>TMI.js:</strong> https://tmijs.com/<br>
+<strong>YTDL-core:</strong> https://www.npmjs.com/package/ytdl-core<br>
 <h3>Commands:</h3>
 <h4>Discord:</h4>
 <strong>!Help:</strong> (Module) (Command): Displays the below information<br>
