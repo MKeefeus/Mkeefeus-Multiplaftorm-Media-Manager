@@ -1,0 +1,20 @@
+This file show a template for the configuration files needed to connect the bot. Place these at ./Discord/config.js and ./Twitch/config.js respectively
+
+Twitch:
+var config = {
+    twitch: {
+        username: "Username",
+        password: "oauth:key"
+    }
+}
+
+module.exports = config
+
+Discord
+var config = {
+    discord: {
+        token:  'Token'
+    }
+}
+
+module.exports = config
