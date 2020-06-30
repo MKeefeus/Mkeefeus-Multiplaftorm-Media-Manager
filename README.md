@@ -17,12 +17,12 @@ ytdl-core https://www.npmjs.com/package/ytdl-core<br>
 <strong>!Clear:</strong> Clears all but the current song from the queue<br>
 <strong>!Fade:</strong> (Link): Lower the volume to 0, start the next song, bring volume back up. This places the link at the front of the queue<br>
 <h4>Twitch:</h4>
-!dice: rolls a random number between 1-6<br>
+<strong>!Dice:</strong> rolls a random number between 1-6<br>
 <h3>Planned features:</h3>
 <h4>Discord:</h4>
 Get metadata in queue function<br>
 Live Streams<br>
-Spotify (monkaS)<br>
+Spotify <strong>(monkaS)</strong><br>
 <h4>Twitch:</h4>
 Add commands from chat<br>
 Quotes<br>
