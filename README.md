@@ -1,6 +1,6 @@
-Dependencies:
-@discordjs/opus https://www.npmjs.com/package/@discordjs/opus
-discordjs https://discord.js.org/#/
+Dependencies:<br>
+@discordjs/opus https://www.npmjs.com/package/@discordjs/opus <br>
+discordjs https://discord.js.org/#/  
 tmi.js https://tmijs.com/
 ytdl-core https://www.npmjs.com/package/ytdl-core 
 
