@@ -1,36 +1,29 @@
-<h6>Dependencies:</h6><br>
-@discordjs/opus https://www.npmjs.com/package/@discordjs/opus <br>
+<h3>Dependencies:</h3>
+@discordjs/opus: https://www.npmjs.com/package/@discordjs/opus<br>
 discordjs https://discord.js.org<br>
 tmi.js https://tmijs.com/<br>
 ytdl-core https://www.npmjs.com/package/ytdl-core<br>
-
-Commands:
-
-Discord: 
-!Help (Module) (Command): Displays the below information
-!Delete (number of messages): Deletes the given number of messages from the chat
-!Connect: Connects bot to the voice channel you are in
-!Disconnect: Disconnects the bot from the voice channel
-!Play (Link): Play a song or add song to the queue if a song is already playing (make sure to play first before using the other commands)
-!Puase: Pause the song
-!Resume/!Play: Resume the song
-!Skip: Skip to the next song in the queue
-!Stop: Stops the music and empties the queue
-!Clear: Clears all but the current song from the queue
-!Fade (Link): Lower the volume to 0, start the next song, bring volume back up. This places the link at the front of the queue
-
-Twitch:
-!dice: rolls a random number between 1-6
-
-
-Planned features:
-
-Discord:
-Get metadata in queue function
-Live Streams
-Spotify (monkaS)
-
-Twitch:
-Add commands from chat
-Quotes
-Blacklisted words
+<h3>Commands:</h3>
+<h4>Discord:</h4>
+!Help: (Module) (Command): Displays the below information<br>
+!Delete: (number of messages): Deletes the given number of messages from the chat<br>
+!Connect: Connects bot to the voice channel you are in<br>
+!Disconnect: Disconnects the bot from the voice channel<br>
+!Play (Link): Play a song or add song to the queue if a song is already playing (make sure to play first before using the other commands)<br>
+!Puase: Pause the song<br>
+!Resume/!Play: Resume the song<br>
+!Skip: Skip to the next song in the queue<br>
+!Stop: Stops the music and empties the queue<br>
+!Clear: Clears all but the current song from the queue<br>
+!Fade: (Link): Lower the volume to 0, start the next song, bring volume back up. This places the link at the front of the queue<br>
+<h4>Twitch:</h4>
+!dice: rolls a random number between 1-6<br>
+<h3>Planned features:</h3>
+<h4>Discord:</h4>
+Get metadata in queue function<br>
+Live Streams<br>
+Spotify (monkaS)<br>
+<h4>Twitch:</h4>
+Add commands from chat<br>
+Quotes<br>
+Blacklisted words<br>
