@@ -5,7 +5,7 @@ tmi.js https://tmijs.com/<br>
 ytdl-core https://www.npmjs.com/package/ytdl-core<br>
 <h3>Commands:</h3>
 <h4>Discord:</h4>
-**!Help:** (Module) (Command): Displays the below information<br>
+__!Help:__ (Module) (Command): Displays the below information<br>
 !Delete: (number of messages): Deletes the given number of messages from the chat<br>
 !Connect: Connects bot to the voice channel you are in<br>
 !Disconnect: Disconnects the bot from the voice channel<br>
