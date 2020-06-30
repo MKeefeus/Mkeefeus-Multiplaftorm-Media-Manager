@@ -70,6 +70,9 @@ client.on('message', msg=>{
         case 'fade':
             Music.Fade(msg, args)
             break
+        /*case 'test':
+            msg.channel.send("Unknown error using fade. Please try again. If problem persists please report issue at https://github.com/MKeefeus/Mkeefeus-Multiplaftorm-Media-Manager/issues")
+            break*/
     }
 })
 
@@ -79,7 +82,12 @@ client.login(token)
 
 /*
 common checks
-msg.guild.voice Checks if Bot is connected to a voice channel. 
-msg.member.voice.channel Checks if a user is connected to a voice channel
-msg.guild.voice.connection.speaking.bitfield == 1 check if bot is talking
+msg.guild.voice Checks if Bot has connected to a voice channel. Returns undefined if not
+msg.guild.voice.channelID == null checks if bot is currently connect to a voice channel. Only check after ensuring a connection has been made either with hasplayed in music or with msg.guild.voice
+msg.member.voice.channel Checks if a connection to a voice channel exists for a user
+msg.guild.voice.connection.speaking.bitfield == 1 check if bot is talking. Only use after ensure that msg.guild.voice exists.
+
+msg.member is the typer of the message (user)
+msg.guild represents the server. 
+You ARE the bot
 */

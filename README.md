@@ -27,7 +27,6 @@ Planned features:
 
 Discord:
 Get metadata in queue function
-Impelement fadeing
 Live Streams
 Spotify (monkaS)
 

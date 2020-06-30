@@ -1,7 +1,6 @@
 /*
 This module holds all the music functionallity. It uses YTDL to play audio from a given youtube URL and implements basic commands to manage the queue 
 */
-const worker = require('worker_threads');
 var servers = {}
 const ytdl = require("ytdl-core")
 var hasPlayed = false
@@ -52,7 +51,6 @@ module.exports = {
             })
         }
     },
-    //add number of songs to skip
     Skip: function (msg) {
         if(hasPlayed){
             var server = servers[msg.guild.id]
@@ -140,6 +138,7 @@ module.exports = {
             msg.channel.send('Please start the music before using the other music commands')
         }     
     },
+
     Remove: function(msg,args){
         if(hasPlayed){
             var server = servers[msg.guild.id]
@@ -157,7 +156,7 @@ module.exports = {
             msg.channel.send('Please start the music before using the other music commands')
         }
     },
-    //retreive metadata
+
     Queue: function(msg){
         if(hasPlayed){
             var server = servers[msg.guild.id]
@@ -168,44 +167,51 @@ module.exports = {
             msg.channel.send('Please start the music before using the other music commands')
         } 
     },
+
     Fade: function(msg, args){
- 
-        function reduce_volume(dispatcher, increment, args, start_volume){
+        function reduce_volume(server, increment, args, start_volume){
+            function setup_increase(server, increment, start_volume){
 
-            function setup_increase(dispatcher, increment, start_volume){
-
-                function increase_volume(dispatcher, increment, start_volume){
-                    var current_vol = dispatcher.volume
-                    if(dispatcher.volume >= start_volume){
-                        console.log(dispatcher.volume)
+                function increase_volume(server, increment, start_volume){
+                    var current_vol = server.dispatcher.volume
+                    if(server.dispatcher.volume >= start_volume){
                         clearInterval(increase_interval)
                     }
-                    dispatcher.setVolume(current_vol + increment)
+                    console.log(server.dispatcher.volume)
+                    server.dispatcher.setVolume(current_vol + increment)
                 }
-
-                dispatcher.setVolume(0)
-                var increase_interval = setInterval(increase_volume, 100, server.dispatcher, increment, start_volume)
+                server.dispatcher.setVolume(0)
+                var increase_interval = setInterval(increase_volume, 100, server, increment, start_volume)
                 clearTimeout(wait)
             }
-            
-            var current_vol = dispatcher.volume
-            if(dispatcher.volume <= 0){
+            var current_vol = server.dispatcher.volume
+            if(server.dispatcher.volume <= 0){
                 server.queue.splice(1, 0, args[1])
                 server.dispatcher.end()
-                var wait = setTimeout(setup_increase, 5000, dispatcher, increment, start_volume)
+                var wait = setTimeout(setup_increase, 1000, server, increment, start_volume)
                 clearInterval(reduce_interval)
             }
-            dispatcher.setVolume(current_vol - increment)
+            server.dispatcher.setVolume(current_vol - increment)
         }
-
-
-        if(msg.guild.voice){
+        if(hasPlayed && !msg.guild.voice.channelID == null && args[1]){
             var server = servers[msg.guild.id]
             if(msg.guild.voice.connection.speaking.bitfield == 1){
                 var start_volume = (server.dispatcher.volume)
                 var increment = start_volume*.02
-                var reduce_interval = setInterval(reduce_volume, 100, server.dispatcher, increment, args, start_volume) 
+                var reduce_interval = setInterval(reduce_volume, 100, server, increment, args, start_volume) 
             }   
+        }
+        else if(!hasPlayed){
+            msg.channel.send('Please start the music before using the other music commands')
+        }
+        else if(!msg.guild.voice.channelID){
+            msg.channel.send("I'm not playing anything, use !play to play some music")
+        }
+        else if(!args[1]){
+            msg.channel.send("Please supply a link to fade into")
+        }
+        else{
+            msg.channel.send("Unknown error using fade. Please try again. If problem persists please report issue at https://github.com/MKeefeus/Mkeefeus-Multiplaftorm-Media-Manager/issues")
         }
     },
 
@@ -219,6 +225,5 @@ module.exports = {
         "!Stop: Stops the music and empties the queue\n"+
         "!Clear: Clears all but the current song from the queue\n"+
         "!Fade [Link]: Lower the volume to 0, start the next song, bring volume back up. This places the link at the front of the queue\n")
-
     }
 }
