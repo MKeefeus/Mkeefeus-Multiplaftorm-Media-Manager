@@ -70,9 +70,11 @@ client.on('message', msg=>{
         case 'fade':
             Music.Fade(msg, args)
             break
-        /*case 'test':
-            msg.channel.send("Unknown error using fade. Please try again. If problem persists please report issue at https://github.com/MKeefeus/Mkeefeus-Multiplaftorm-Media-Manager/issues")
-            break*/
+        case 'test':
+            var test = parseInt('daddy')
+            console.log(test)
+            console.log(typeof(test))
+            break
     }
 })
 
