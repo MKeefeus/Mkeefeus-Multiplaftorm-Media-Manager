@@ -37,7 +37,6 @@ module.exports = {
         else if(msg.guild.voice && msg.guild.voice.channelID && msg.guild.voice.channelID != msg.member.voice.channelID){
             msg.reply("I'm already in "+ msg.guild.voice.channel.name)
         }
-        //if user is in a voice channel
         else if(msg.member.voice.channel){
             msg.member.voice.channel.join()
         }
